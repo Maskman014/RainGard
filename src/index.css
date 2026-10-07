@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Accessible Large-Text Mode for Low-Literacy Vendors */
+  html.large-text {
+    font-size: 18px;
+  }
+
+  html.large-text button,
+  html.large-text input,
+  html.large-text select {
+    min-height: 44px;
+  }
+
+  /* Custom subtle scrollbars in earthy sand tones */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F4EFE6;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D9CDB8;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C4B49C;
+  }
+}

@@ -1,0 +1,94 @@
+.zone-leaflet-map {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background: #f2ece1;
+  z-index: 0;
+}
+
+.zone-marker-icon {
+  background: transparent;
+  border: 0;
+}
+
+.zone-map-marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font: 700 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  box-shadow: 0 2px 8px rgb(44 36 30 / 35%);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
+}
+
+.zone-map-marker:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 12px rgb(44 36 30 / 45%);
+}
+
+.zone-map-marker--safe {
+  background: #1e4d38;
+}
+
+.zone-map-marker--moderate {
+  background: #d97706;
+}
+
+.zone-map-marker--critical {
+  background: #c85a32;
+}
+
+.zone-map-marker--selected {
+  outline: 2px solid #2c241e;
+  outline-offset: 3px;
+}
+
+.zone-map-marker--pulse::before {
+  position: absolute;
+  inset: -5px;
+  border: 2px solid rgb(200 90 50 / 55%);
+  border-radius: inherit;
+  content: '';
+  animation: zone-critical-pulse 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.zone-map-tooltip {
+  padding: 3px 7px;
+  border: 1px solid #d9cdb8;
+  border-radius: 6px;
+  background: #fff;
+  color: #2c241e;
+  font: 600 10px/1.2 'Plus Jakarta Sans', system-ui, sans-serif;
+  box-shadow: 0 1px 4px rgb(44 36 30 / 15%);
+}
+
+.zone-map-tooltip::before {
+  display: none;
+}
+
+@keyframes zone-critical-pulse {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.85);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zone-map-marker,
+  .zone-map-marker--pulse::before {
+    animation: none;
+    transition: none;
+  }
+}
